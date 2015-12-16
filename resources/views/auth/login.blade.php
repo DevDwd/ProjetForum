@@ -1,25 +1,37 @@
-@extends('master')
-
-@section('menu')
-    
-@stop
+@extends('layouts.master')
 
 @section('content')
 
-    <div class="login-container">
-        <div class="container">
-            <div class="presentation-block">
-                <h2>Apitalent facilite la<br>mobilité inter-entreprises</h2>
-                <p>
-                    Permet à chaque entreprise et salarié de bénéficier du programme de mobilité externe du pôle de
-                    compétence numérique de Grand Paris Seine Ouest. <!-- <a href="{{ URL::to('about') }}">en savoir +</a> -->
-                </p>
-            </div>
 
-            <div class="login-block">
-                <h2>Identifiez-vous pour accéder à la plateforme</h2>
+<div class="row">
+        <div class="col-md-6 col-md-offset-4">
+            <div class="form-block">
+                <legend>Connexion </legend>
 
-                
-            </div>
-        </div>
+<form method="POST" action="{{route("auth.login")}}">
+    {!! csrf_field() !!}
+
+    <div class="form-group">
+        Email
+        <input type="email" name="email" value="{{ old('email') }}">
     </div>
+
+     <div class="form-group">
+        Password
+        <input type="password" name="password" id="password">
+    </div>
+
+     <div class="form-group">
+        <input type="checkbox" name="remember"> Remember Me
+    </div>
+
+     <div class="form-group">
+       <button type="submit" class="btn btn-primary">Se connecter</button>
+    </div>
+</form>
+    
+    </div>
+                </div>
+                    </div>
+    
+@stop

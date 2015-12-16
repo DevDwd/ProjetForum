@@ -16,7 +16,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+         return View::make('posts.index');
     }
 
     /**

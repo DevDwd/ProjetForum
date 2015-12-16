@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
+        <title>Projet Forum Ingesup </title>
+            
+            
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
+           
         <style>
             html, body {
                 height: 100%;
@@ -36,9 +38,23 @@
         </style>
     </head>
     <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="navbar-header">
+       <img src="{{url('http://www.y-nov.com/wp-content/themes/lch/img/logo.png')}} ">
+      
+          
+     
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{route("auth.login")}}">Se connecter</a></li>
+            <li><a href="{{route("auth.register")}}">Inscription</a></li>
+        </ul>
+    </div>
+    </nav>
+            
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+            <img src="{{url('http://forex-ecole.com/wp-content/uploads/2015/03/forum.jpg')}} ">
+                <div class="title">Bienvue sur Ingforum....</div>
             </div>
         </div>
     </body>

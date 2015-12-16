@@ -16,17 +16,17 @@ Route::get('/', function () {
 });
 
 Route::get('home', function () {
-    echo" je suis connecté";
+   return view('home');
 });
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin')->name("auth.login");
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
+Route::get('auth/register',  'Auth\AuthController@getRegister' );
+Route::post('auth/register', 'Auth\AuthController@postRegister')->name("auth.register");
 
 
 
