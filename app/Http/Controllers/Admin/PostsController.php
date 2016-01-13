@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Post;
+use \Input;
 
 class PostsController extends Controller
 {
@@ -16,7 +18,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-         return View::make('posts.index');
+        $posts = Post::get();
+        
+         return View('posts.index', compact('posts'));
     }
 
     /**
@@ -26,7 +30,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return View('posts.form');
     }
 
     /**
@@ -37,7 +41,9 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $post = Post::create($request->all());
+        
+        return redirect('admin/posts');
     }
 
     /**
@@ -59,7 +65,9 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -71,7 +79,10 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->update($request->all());
+        
+        return redirect('admin/posts');
     }
 
     /**

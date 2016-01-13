@@ -33,5 +33,6 @@ Route::post('auth/register', 'Auth\AuthController@postRegister')->name("auth.reg
 Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function(){
     
     Route::resource('posts', 'PostsController');
+    Route::post('posts/create', 'PostsController@store')->name("posts.store");
     
     });
